@@ -2,14 +2,14 @@ import { ReactElement, useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Column } from "react-table";
-import AdminSidebar from "../../Components/admin/AdminSidebar";
-import TableHOC from "../../Components/admin/TableHOC"; // Corrected casing
+import AdminSidebar from "../../components/admin/AdminSidebar";
+import TableHOC from "../../components/admin/TableHOC"; // Corrected casing
 import { useAllProductsQuery } from "../../redux/api/productApI";
 import { RootState, server } from "../../redux/store";
 import toast from "react-hot-toast";
 import { CustomeError } from "../../types/api-types";
 import { useSelector } from "react-redux";
-import { Skeleton } from "../../Components/Loader";
+import { Skeleton } from "../../components/Loader";
 
 interface DataType {
   photo: ReactElement;

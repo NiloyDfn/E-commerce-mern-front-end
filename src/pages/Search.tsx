@@ -1,9 +1,9 @@
 import { useState } from "react";
-import ProductCard from "../Components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { useCategoriesQuery, useSearchProductsQuery } from "../redux/api/productApI";
 import toast from "react-hot-toast";
 import { CustomeError } from "../types/api-types";
-import { Skeleton } from "../Components/Loader";
+import { Skeleton } from "../components/Loader";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducer/cartReducer";
 import { CartItem } from "../types/types";

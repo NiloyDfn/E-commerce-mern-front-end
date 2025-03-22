@@ -1,9 +1,9 @@
-import AdminSidebar from "../../../Components/admin/AdminSidebar";
-import { DoughnutChart, PieChart } from "../../../Components/admin/Charts";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
+import { DoughnutChart, PieChart } from "../../../components/admin/Charts";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { usePieQuery } from "../../../redux/api/dashboardApi";
-import { Skeleton } from "../../../Components/Loader";
+import { Skeleton } from "../../../components/Loader";
 import { Navigate } from "react-router-dom";
 
 const PieCharts = () => {

@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { cartReducerInitialState } from "../types/reducer-types";
 
-
+  
 
 interface PropsType {
   user : User | null ;

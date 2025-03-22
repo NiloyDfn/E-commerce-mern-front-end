@@ -5,7 +5,7 @@ import {
   FaChartLine,
   FaChartPie,
   FaGamepad,
-  FaStopwatch,
+  FaStopwatch
 } from "react-icons/fa";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoIosPeople } from "react-icons/io";

@@ -4,10 +4,10 @@ import { FaRegBell } from "react-icons/fa";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import AdminSidebar from "../../Components/admin/AdminSidebar";
-import { BarChart, DoughnutChart } from "../../Components/admin/Charts";
-import Table from "../../Components/admin/DashboardTable";
-import { Skeleton } from "../../Components/Loader";
+import AdminSidebar from "../../components/admin/AdminSidebar";
+import { BarChart, DoughnutChart } from "../../components/admin/Charts";
+import Table from "../../components/admin/DashboardTable";
+import { Skeleton } from "../../components/Loader";
 import { useStatsQuery } from "../../redux/api/dashboardApi";
 import { RootState } from "../../redux/store";
 const userImg =

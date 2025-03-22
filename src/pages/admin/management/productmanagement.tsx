@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import AdminSidebar from "../../../Components/admin/AdminSidebar";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { useSelector } from "react-redux";
 import { userReducerInitialState } from "../../../types/reducer-types";
 import {
@@ -10,7 +10,7 @@ import {
 } from "../../../redux/api/productApI";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { server } from "../../../redux/store";
-import { Skeleton } from "../../../Components/Loader";
+import { Skeleton } from "../../../components/Loader";
 import { responseToast } from "../../../utils/features";
 
 const Productmanagement = () => {

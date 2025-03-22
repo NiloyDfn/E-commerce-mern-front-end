@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useOrderDetailsQuery } from "../redux/api/orderApi"; // Custom query hook to fetch order details
-import { Skeleton } from "../Components/Loader";
+import { Skeleton } from "../components/Loader";
 import { CustomeError } from "../types/api-types";
 
 const OrderDetails = () => {

@@ -2,12 +2,12 @@ import { FaTrash } from "react-icons/fa";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import AdminSidebar from "../../../Components/admin/AdminSidebar";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { useDeleteOrderMutation, useOrderDetailsQuery, useUpdateOrderMutation } from "../../../redux/api/orderApi";
 import { server } from "../../../redux/store";
 import { userReducerInitialState } from "../../../types/reducer-types";
 import { Order, OrderItem } from "../../../types/types";
-import { Skeleton } from "../../../Components/Loader";
+import { Skeleton } from "../../../components/Loader";
 import { responseToast } from "../../../utils/features";
 
 const defaulData: Order = {

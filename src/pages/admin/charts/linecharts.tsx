@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import AdminSidebar from "../../../Components/admin/AdminSidebar";
-import { LineChart } from "../../../Components/admin/Charts";
-import { Skeleton } from "../../../Components/Loader";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
+import { LineChart } from "../../../components/admin/Charts";
+import { Skeleton } from "../../../components/Loader";
 import { useLineQuery } from "../../../redux/api/dashboardApi";
 import { RootState } from "../../../redux/store";
 import { CustomeError } from "../../../types/api-types";

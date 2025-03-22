@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ProductCard from "../Components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { useLatestProductsQuery } from "../redux/api/productApI";
 import toast from "react-hot-toast";
-import  { Skeleton } from "../Components/Loader";
+import  { Skeleton } from "../components/Loader";
 import { CartItem } from "../types/types";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducer/cartReducer";

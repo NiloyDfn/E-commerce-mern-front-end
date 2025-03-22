@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import AdminSidebar from "../../../Components/admin/AdminSidebar";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { useSelector } from "react-redux";
 import { userReducerInitialState } from "../../../types/reducer-types";
 import { useNewProductMutation } from "../../../redux/api/productApI";
