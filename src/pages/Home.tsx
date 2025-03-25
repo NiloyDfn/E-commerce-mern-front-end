@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/ProductCard.tsx";
 import { useLatestProductsQuery } from "../redux/api/productApI";
 import toast from "react-hot-toast";
-import  { Skeleton } from "../components/Loader";
+import { Skeleton } from "../components/Loader";
 import { CartItem } from "../types/types";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducer/cartReducer";
@@ -47,7 +47,7 @@ const Home = () => {
       </h1>
       <main>
         {isLoading ? (
-          <Skeleton width="80vw" />
+          <Skeleton length={20} />
         ) : (
           data?.products.map((i) => (
             <ProductCard

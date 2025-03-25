@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Column } from "react-table";
 import AdminSidebar from "../../components/admin/AdminSidebar";
-import TableHOC from "../../components/admin/TableHOC";
+import TableHOC from "./TableHOc";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { useAlluserQuery, useDeleteUserMutation } from "../../redux/api/userAPI";

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Column } from "react-table";
 import AdminSidebar from "../../components/admin/AdminSidebar";
-import TableHOC from "../../components/admin/TableHOC";
+import TableHOC from "./TableHOc";
 import { Skeleton } from "../../components/Loader";
 import { useAllOrdersQuery } from "../../redux/api/orderApi";
 import { CustomeError } from "../../types/api-types";

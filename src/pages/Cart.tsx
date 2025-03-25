@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiSolidError } from "react-icons/bi";
-import Cartitemscard from "../components/CartItems";
+import Cartitemscard from "../components/Cartitems";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartReducerInitialState } from "../types/reducer-types";
