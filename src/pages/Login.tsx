@@ -6,11 +6,14 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../firebase";
-import { useLoginMutation } from "../redux/api/userAPI";
+import { getuser, useLoginMutation } from "../redux/api/userAPI";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { messageResponse } from "../types/api-types";
+import { useDispatch } from "react-redux";
+import { userExist, userNotExist } from "../redux/reducer/userReducer";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [gender, setGender] = useState<string>("");
   const [date, setDate] = useState<string>("");
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -34,11 +37,14 @@ const Login = () => {
 
       if ("data" in response) {
         toast.success((response.data as messageResponse).message);
+        const data = await getuser(user.uid);
+        dispatch(userExist(data?.user!))
         navigate('/'); // Redirect to root after successful login
       } else {
         const error = response.error as FetchBaseQueryError;
         const message = (error.data as messageResponse).message;
         toast.error(message)
+        dispatch(userNotExist())
       }
     } catch (error) {
       toast.error("Failed to sign in");
