@@ -32,7 +32,7 @@ const Header = ({user}:PropsType) => {
 
   return (
     <nav className="header">
-       <div><Link className="linktag" onClick={()=> setIsOpen(false)} to="/admin/dashboard" >Admin</Link></div>
+       <div><Link className="linktag" onClick={()=> setIsOpen(false)} to="/admin/dashboard" >Dashboard</Link></div>
        <Link onClick={()=> setIsOpen(false)} to={"/"}>Home</Link> 
        <Link onClick={()=> setIsOpen(false)} to={"/search"}><FaSearch/> </Link> 
        <Link onClick={()=> setIsOpen(false)} to={"/cart"}><FaShoppingBag/> {cartItems.length}</Link> 
