@@ -1,27 +1,34 @@
-import { signInWithPopup } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
-
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../firebase";
-import { useLoginMutation } from "../redux/api/userAPI";
+import { getuser, useLoginMutation } from "../redux/api/userAPI";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { messageResponse } from "../types/api-types";
+import { useDispatch } from "react-redux";
+import { userExist, userNotExist } from "../redux/reducer/userReducer";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [gender, setGender] = useState<string>("");
   const [date, setDate] = useState<string>("");
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const [login] = useLoginMutation();
 
   const loginHandler = async () => {
     try {
       const provider = new GoogleAuthProvider();
-      const { user } = await signInWithPopup(auth, provider);
-      
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      if (!user) {
+        toast.error("No user data from Firebase");
+        return;
+      }
+
       const response = await login({
         name: user.displayName!,
         email: user.email!,
@@ -34,14 +41,25 @@ const Login = () => {
 
       if ("data" in response) {
         toast.success((response.data as messageResponse).message);
-        navigate('/'); // Redirect to root after successful login
+
+        try {
+          const data = await getuser(user.uid);
+          dispatch(userExist(data?.user!));
+          navigate("/");
+        } catch (err) {
+          console.error("Fetching user failed:", err);
+          toast.error("Failed to fetch user data");
+        }
       } else {
         const error = response.error as FetchBaseQueryError;
-        const message = (error.data as messageResponse).message;
-        toast.error(message)
+        const message =
+          (error.data as messageResponse)?.message || "Login API failed";
+        toast.error(message);
+        dispatch(userNotExist());
       }
-    } catch (error) {
-      toast.error("Failed to sign in");
+    } catch (error: any) {
+      console.error("Firebase sign-in error:", error);
+      toast.error(error?.message || "Failed to sign in");
     }
   };
 
@@ -69,7 +87,7 @@ const Login = () => {
           <p>Already Signed In ?</p>
           <button onClick={loginHandler}>
             <FcGoogle />
-            <span>sing in with google</span>
+            <span>Sign in with Google</span>
           </button>
         </div>
       </main>
@@ -78,4 +96,3 @@ const Login = () => {
 };
 
 export default Login;
-

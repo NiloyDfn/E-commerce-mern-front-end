@@ -19,6 +19,7 @@ const Productmanagement = () => {
   );
 
   const params = useParams();
+  
   const navigate = useNavigate()
   const { data,isError, isLoading } = useProductDetailsQuery(params.id!);
 
@@ -98,15 +99,6 @@ const Productmanagement = () => {
 
 
   };
-
-  useEffect(() => {
-    if (data) {
-      setNameUpdate(data.product.name);
-      setPriceUpdate(data.product.price);
-      setStockUpdate(data.product.stock);
-      setCategoryUpdate(data.product.category);
-    }
-  }, [data]);
 
   if(isError) return <Navigate to={"/404"} />;
 
